@@ -33,11 +33,11 @@ export default function PackagesPage() {
 
             <div className="grid md:grid-cols-3 gap-6">
                 {packages.map((pkg) => (
-                    <div key={pkg.id} className="bg-white shadow rounded-lg overflow-hidden">
+                    <div key={pkg.id} className="bg-black shadow rounded-lg overflow-hidden">
                         <img src={pkg.image} alt={pkg.title} className="w-full h-48 object-cover" />
                         <div className="p-5 space-y-2">
                             <h3 className="text-xl font-semibold">{pkg.title}</h3>
-                            <p className="text-gray-600">{pkg.description}</p>
+                            <p className="text-gray-100">{pkg.description}</p>
                             <p className="text-blue-600 font-bold">{pkg.price}</p>
                             <a href="/booking" className="inline-block mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
                                 Book Now

@@ -25,22 +25,40 @@ const rooms = [
 export default function RoomsPage() {
   return (
     <section className="relative bg-[url('/images/room-bg.jpg')] bg-cover bg-center min-h-screen text-white">
-      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/60 z-0" />
-
-      {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-16">
         <h2 className="text-4xl font-bold text-center mb-12">Our Rooms</h2>
 
         <div className="grid md:grid-cols-3 gap-6">
           {rooms.map((room) => (
-            <div key={room.id} className="bg-white text-gray-900 shadow-lg rounded-lg overflow-hidden">
-              <img src={room.image} alt={room.name} className="w-full h-48 object-cover" />
+            <div
+              key={room.id}
+              className="group bg-white text-gray-900 shadow-lg rounded-lg overflow-hidden h-72 transition-all duration-300"
+            >
+              {/* Image (hidden by default, shown on hover) */}
+              <img
+                src={room.image}
+                alt={room.name}
+                className="w-full h-36 object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              />
+
               <div className="p-5 space-y-2">
+                {/* Room Name (always visible) */}
                 <h3 className="text-xl font-semibold">{room.name}</h3>
-                <p className="text-gray-600">{room.description}</p>
-                <p className="text-blue-600 font-bold">{room.price}</p>
-                <a href="/booking" className="inline-block mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+
+                {/* Description + Price (hidden by default, shown on hover) */}
+                <p className="text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {room.description}
+                </p>
+                <p className="text-blue-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {room.price}
+                </p>
+
+                {/* Book Now Button */}
+                <a
+                  href="/booking"
+                  className="inline-block mt-3 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
                   Book Now
                 </a>
               </div>
